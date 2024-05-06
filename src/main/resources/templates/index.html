@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>PruebaClientes</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="container mt-4">
+		<a th:href="@{new}" class="btn btn-primary">Nuevo</a>
+		<br></br>
+			<table class="table">
+				<thead> 
+					<tr>
+					<th>ID</th>
+					<th>APELLIDOS</th>
+					<th>DIRECCION</th>
+					<th>CORREO ELECTRONICO</th>
+					<th>NOMBRES</th>
+					<th>TELEFONO</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="clientes_prueba:${cliente}">
+					<td th:text=${clientes_prueba.id}></td>
+					<td th:text=${clientes_prueba.apellidos_cliente}></td>
+					<td th:text=${clientes_prueba.direccion_cliente}></td>
+					<td th:text=${clientes_prueba.correo_cliente}></td>
+					<td th:text=${clientes_prueba.nombres_cliente}></td>
+					<td th:text=${clientes_prueba.telefono_cliente}></td>
+					<td>
+					<a th:href="@{/editar/}+${clientes_prueba.id}" class="btn btn-warning">Editar</a>
+					<a th:href="@{/eliminar/}+${clientes_prueba.id}" class="btn btn-danger">Eliminar</a>
+					</td>
+					</tr>
+				</tbody>
+			
+			</table>
+		</div>
+	</body>
+</html>
